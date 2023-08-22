@@ -4,7 +4,7 @@ import Axios from "axios";
 
 export default function App() {
   let input;
-  const[infor, setInfor]=useState("")
+  const[infor, setInfor]=useState(null)
 
   const fetchData= ()=> {
     console.log(input);
@@ -21,9 +21,9 @@ export default function App() {
         (event)=> {input= (event.target.value);}        
       } />
       <button onClick={fetchData}>Predict age</button>
-      <h1>name:{infor.name}</h1>
-      <h1>age:{infor.age}</h1>
-      <h1>count:{infor.count}</h1>
+      <h1>name:{infor?.name}</h1>
+      <h1>age:{infor?.age}</h1>
+      <h1>count:{infor?.count}</h1>
       <h1></h1>
     </div>
   )
