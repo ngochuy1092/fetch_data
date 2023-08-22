@@ -4,20 +4,23 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   const[catFact, setCatFact]= useState("");
-
-  useEffect(()=> {
-    console.log('hi');
-    Axios.get("https://catfact.ninja/fact").then((res)=> {
-      console.log(res.data.fact);
+  const fetchData =()=> {
+    Axios.get("https://catfact.ninja/fact").then(res=> {
       setCatFact(res.data.fact);
     })
-  },[])
+  }
+
+  useEffect(
+    ()=> {
+      fetchData();
+    }, []
+  )
 
   console.log('hi1');
   return(
     <div>
-      <button> Generate Cat Fact</button>
+      <button onClick={fetchData}> Generate Cat Fact</button>
       <h1>{catFact}</h1>
-    </div> 
+    </div>
   )
 } 
