@@ -8,7 +8,6 @@ export default function App() {
   const fetchParty= (name)=> {
     Axios.get(`https://excuser-three.vercel.app/v1/excuse/${name}/`).then (
       (res)=> {
-        console.log(res.data[0]);
         setParty(res.data[0]);
       }
     )
